@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //输入五个有效年龄
+        //创建新数组存放值
+        let arr = []
+        for (let i = 1; i <= 5; i++) {
+            //输入年龄
+            let age = +prompt(`请输入第${i}个数`)
+            //判断是否为数字并且在0~100内
+            if (isNaN(age) || age < 0 || age > 100) {
+                alert('年龄不在0~100之内,请重新输入')
+                i--
+                continue
+            }
+            //有效的年龄存放到数组中
+            arr.push(age)
+        }
+
+        //打印出所有成年人的年龄 
+        for (let i = 0; i < 5; i++) {
+            if (arr[i] >= 18) {
+                document.write(`成年人年龄有${arr[i]} <br>`)
+            }
+        }
+
+        //打印出所有人总年龄
+        let sum = 0
+        for (let i = 0; i < 5; i++) {
+            sum += arr[i]
+        }
+        document.write(`总年龄是${sum} <br>`)
+
+        //打印出所有人的平均年龄
+        let avg = 0
+        for (let i = 0; i < 5; i++) {
+            avg = sum / arr.length
+        }
+        document.write(`平均年龄是${avg} <br>`)
+
+        //打印出最大年龄和最小年龄 
+        //1.
+        let max = arr[0]
+        let min = arr[0]
+        for (let i = 1; i < 5; i++) {
+            if (max < arr[i]) {
+                max = arr[i]
+            }
+
+            if (min > arr[i]) {
+                min = arr[i]
+            }
+        }
+
+        document.write(`最大值是${max} <br>`)
+        document.write(`最小值是${min} <br>`)
+
+        //2.
+        arr.sort(function (a, b) {
+            return a - b;
+        }) //升序
+        let max2 = arr[0]
+        let min2 = arr[arr.length - 1]
+    </script>
+</body>
+
+</html>
