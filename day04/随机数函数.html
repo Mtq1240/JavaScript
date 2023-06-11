@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 生成0~10之间的随机整数
+        let num = Math.floor(Math.random() * 11)
+        console.log(num)
+        // 生成5~10之间的随机数
+        let num2 = Math.floor(Math.random() * 6) + 5
+        console.log(num2)
+        // 生成N~M之间的随机数
+        // let num3 = Math.floor(Math.random() * (M - N + 1)) + N
+
+        // let arr = ['red', 'green', 'blue']
+        // let random = Math.floor(Math.random() * arr.length)
+        // console.log(arr[random])
+
+        function getRandom(N, M) {
+            return Math.floor(Math.random() * (M - N + 1)) + N
+        }
+
+        console.log(getRandom(0, 8))
+    </script>
+</body>
+
+</html>
