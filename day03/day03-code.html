@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //        **1.求和函数封装练习
+        // 1. 封装函数, 名字为sum
+        // 2. 功能: 根据传入的两个数,求和并且返回求和的结果（函数必须有return返回值） 
+        function sum(x = 0, y = 0) {
+            return sum = x + y
+        }
+        let result = sum(1, 2)
+        document.write(`${result}<br>`)
+
+
+        //          **2.实现两个数的值交换(函数版本)  
+        // 1. 函数名为 changeNum()
+        // 2. 调用函数时,  `changeNum(1，2)`
+        // 3. 经过函数内部处理后,输出  `第一个值的结果是2  第二个值的结果是1`
+        // 4. 可以多调用两次
+        function changeNum(x = 0, y = 0) {
+            let temp = 0
+            temp = x
+            x = y
+            y = temp
+            document.write(`第一个值的结果是${x},<br>第二个值的结果是${y}<br>`)
+        }
+        changeNum(1, 2)
+        changeNum(2, 1)
+
+
+        //         **要求:**
+
+        // 1. 运行程序后, 浏览器显示输入确认框(prompt)
+        // 2. 第一个输入确认框提示输入银行卡余额
+        // 3. 第二个输入确认框提示输入当月食宿消费金额
+        // 4. 第三个输入确认框提示输入当月生活消费金额
+        // 5. 输入完毕后,在页面中显示银行卡剩余金额
+        // 6. 提示: 所有功能代码封装在函数内部（函数需要把余额返回）
+        function atm() {
+            let total = +prompt('请输入银行卡余额')
+            let food = +prompt('请输入当月食宿消费金额')
+            let life = +prompt('请输入当月生活消费金额')
+            let remain = total - food - life
+            return remain
+        }
+        let remain = atm()
+        document.write(`银行卡剩余金额为${remain}<br>`)
+
+
+        //       ** 封装一个函数,可以求任意数组的和 或 平均值
+        // **要求：**
+        // - 函数可以传递2个参数，比如  handleData(arr, true)  `handleData 处理数据的意思`
+        // * 参数一： 接受实参传递过来的数组
+        // * 参数二:  布尔类型 如果是true或者不传递参数 是求和操作,
+        //   如果传递过来的参数是 false 则是求平均值
+        function handleData(arr = [], flag = true) {
+            let sum = 0
+            for (let i = 0; i < arr.length; i++) {
+                sum += arr[i]
+            }
+            if (flag) {
+                return sum
+            } else {
+                return sum / arr.length
+            }
+        }
+
+        console.log(handleData([1, 2, 3, 4]));
+        console.log(handleData([1, 2, 3], false));
+    </script>
+</body>
+
+</html>
