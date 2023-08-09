@@ -9,14 +9,93 @@
 
 <body>
     <script>
-        //         ### 练习题1：
-        // 点名: 每次刷新网页运行, 在控制台 随机输出一位同学的名字 ["老赵", "老李", "小传", "小黑"]，如果输出了，则数组中删除这个名字
-        let arr = ["老赵", "老李", "小传", "小黑"]
-        let random = Math.floor(Math.random() * arr.length)
-        document.write(arr[random])
-        //去重 splice(起始位置,删除几个元素)
-        arr.splice(random, 1)
-        console.log(arr);
+        // //         ### 练习题1：
+        // // 点名: 每次刷新网页运行, 在控制台 随机输出一位同学的名字 ["老赵", "老李", "小传", "小黑"]，如果输出了，则数组中删除这个名字
+        // let arr = ["老赵", "老李", "小传", "小黑"]
+        // let random = Math.floor(Math.random() * arr.length)
+        // document.write(arr[random])
+        // //去重 splice(起始位置,删除几个元素)
+        // arr.splice(random, 1)
+        // console.log(arr);
+
+        // //         ### 练习题2：
+        // // 1. 声明一个变量per, 类型为对象类型
+        // // 2. 该对象的属性为性别,年龄,爱好(3个)
+        // // 3. 该对象的方法有 说话, 吃饭(2个)
+        // // 4. 在控制台分别调用该对象的属性和方法
+        // let per = {
+        //     gender: '男',
+        //     age: 18,
+        //     hobby: 'hobby',
+        //     speak: function () {
+        //         document.write(`speak 方法被调用---<br>`)
+        //     },
+        //     eat: function (f) {
+        //         document.write(`我今天吃的是${f}---<br>`)
+        //     }
+        // }
+        // //调用部分
+        // document.write(`性别:${per.gender}<br>`)
+        // document.write(`年龄:${per.age}<br>`)
+        // document.write(`爱好:${per.hobby}<br>`)
+        // //调用方法
+        // per.speak()
+        // per.eat('苹果')
+
+        // //         ### 练习题4：
+        // // 猜数字游戏，设定次数，最多猜8次
+        // function random(min, max) {
+
+        //     return Math.floor(Math.random() * (max - min + 1)) + min
+        // }
+        //     // 生成一个数字先,猜0-20之间的数
+        //     let num = random(0, 20)
+
+        //     let flag = true
+        //     // 最多猜8次
+        //     for (let i = 1; i <= 8; i++) {
+
+        //     let userNum = prompt('请输入您要猜的数字')
+
+        //     // 比较数字
+        //     if (userNum > num) {
+
+        //         alert('您猜的数字大了')
+        //     } else if (userNum < num) {
+
+        //         alert('您猜的数字小了')
+        //     } else {
+        //         flag = false
+        //         alert('恭喜猜对了！')
+        //         break
+        //     }
+        //     }
+
+        //     if (flag) {
+        //     alert('太笨了，这都猜不到！O(∩_∩)O')
+        //     }
+
+        function getRandomColor(flag) {
+            let str = '#'
+            //声明数组,因为随机数只能生成随机数字
+            let arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
+            //1.如果是true 则返回#ffffff
+            if (flag) {
+                for (let i = 1; i <= 6; i++) {
+                    let random = Math.floor(Math.random() * arr.length)
+                    str += arr[random]
+                }
+                return str
+            } else {
+                //2.如果是 flase 则返回rgb(255,255,255)
+                let r = Math.floor(Math.random() * 256)
+                let g = Math.floor(Math.random() * 256)
+                let b = Math.floor(Math.random() * 256)
+                return `rgb(${r},${g},${b})`
+            }
+        }
+        console.log(getRandomColor(true));
+        console.log(getRandomColor(false));
     </script>
 </body>
 
