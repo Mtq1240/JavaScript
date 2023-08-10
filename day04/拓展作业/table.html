@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/table.css">
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>编号</th>
+            <th>科目</th>
+            <th>成绩</th>
+            <th>操作</th>
+        </tr>
+        <script>
+            let total = 0
+            const data = [
+                { subject: '语文', score: 46 },
+                { subject: '数学', score: 80 },
+                { subject: '英语', score: 100 },
+            ]
+
+            for (let i = 0; i < data.length; i++) {
+                document.write(`
+                        <tr>
+                            <td>${i + 1}</td>
+                            <td>${data[i].subject}</td>
+                            <td>${data[i].score}</td>
+                            <td><a href="#">删除</a></td>
+                        </tr>
+                    `)
+                total += data[i].score
+            }
+            document.write(`
+                    <tr>
+                        <td colspan="5" style="padding: 40px;">
+                            <span>暂无数据</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="6">
+                            <span>总分：${total}</span>
+                            <span style="margin-left: 50px">平均分：${total / data.length}</span>
+                        </td>
+                    </tr>
+                `)
+        </script>
+
+    </table>
+</body>
+
+</html>

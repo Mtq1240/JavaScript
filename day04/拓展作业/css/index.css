@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+body {
+    background-color: black;
+    text-align: center;
+}
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 500px;
+    margin: 20px auto;
+}
+
+.list li {
+    margin-top: 15px;
+    transition: all 1s;
+}
+
+.list li:hover {
+    transform: scale(1.2);
+}
+
+.list li img {
+    width: 100px;
+}
