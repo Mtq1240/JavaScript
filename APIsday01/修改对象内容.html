@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">文字内容</div>
+    <script>
+        //1.获取元素(innerText)
+        const box = document.querySelector('.box')
+        box.innerText = '<strong>修改文字内容</strong>' //不解析标签
+
+        //2.innerHtml
+        box.innerHTML = '<strong>修改文字内容</strong>' //可以解析标签
+
+
+    </script>
+</body>
+
+</html>
