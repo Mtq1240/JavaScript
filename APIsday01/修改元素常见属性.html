@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="./images/1.webp" alt="">
+    <script>
+        //获取图片元素
+        // const img = document.querySelector('img')
+        //修改图片对象的属性 对象.属性 = 值
+        // img.src = './images/3.webp'
+        // img.title = '刘德华'
+
+        function getRandom(N, M) {
+            return Math.floor(Math.random() * (M - N + 1)) + N
+        }
+        //获取图片元素
+        const img = document.querySelector('img')
+        const random = getRandom(1, 6)
+        img.src = `./images/${random}.webp`
+
+    </script>
+</body>
+
+</html>
