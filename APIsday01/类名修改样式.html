@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            border: 1px solid black;
+            margin: 10px auto;
+            padding: 10px;
+        }
+
+        .nav {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div>123</div>
+    <script>
+        //1.获取元素
+        const div = document.querySelector('div')
+        //2.用className添加样式
+        div.className = 'box nav'
+    </script>
+</body>
+
+</html>
