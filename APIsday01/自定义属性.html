@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div data-id="1" data-spm="不知道">1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <script>
+        const one = document.querySelector('div')
+        console.log(one.dataset) // dateset 自定义属性的集合,是对象
+        console.log(one.dataset.id)// 对象.属性
+        console.log(one.dataset.spm)
+    </script>
+</body>
+
+</html>

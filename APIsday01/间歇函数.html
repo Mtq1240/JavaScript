@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function fn() {
+            console.log('一秒钟打印一次');
+        }
+        // setInterval(函数名, 间隔时间(多少秒调用一次函数))
+        let n1 = setInterval(fn, 1000) //返回的是一个id数字
+
+        //关闭定时器 clearInterval(定时器编号)
+        clearInterval(n1)
+    </script>
+</body>
+
+</html>
