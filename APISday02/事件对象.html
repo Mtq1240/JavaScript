@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <script>
+        const ipt = document.querySelector('input')
+
+        ipt.addEventListener('keyup', function (e) {
+            // console.log(e.key); e:对象  e.key: 获取按下哪个键
+            if (e.key === 'Enter') {
+                console.log('回车键')
+            }
+        })
+    </script>
+</body>
+
+</html>
