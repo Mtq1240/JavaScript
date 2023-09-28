@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 3000px;
+            width: 500px;
+        }
+
+        div {
+            display: none;
+            overflow: scroll;
+            margin: 200px;
+            width: 100px;
+            height: 300px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        文字文字文字文字文字文字文字
+        文字文字文字文字文字文字文字
+        文字文字文字文字文字文字文字
+        文字文字文字文字文字文字文字
+        文字文字文字文字文字文字文字
+        文字文字文字文字文字文字文字
+        文字文字文字文字文字文字文字
+        文字文字文字文字文字文字文字
+        文字文字文字文字文字文字文字
+        文字文字文字文字文字文字文字
+        文字文字文字文字文字文字文字
+    </div>
+    <script>
+        // // 页面滚动事件
+        // window.addEventListener('scroll', function () {
+        //     // console.log('滚动')
+        // })
+
+        //给div添加滚动事件
+        const div = document.querySelector('div')
+        div.addEventListener('scroll', function () {
+            //scrollTop 被卷取去的头部
+            // console.log(div.scrollTop);
+        })
+        window.addEventListener('scroll', function () {
+            // 获取 html元素的方式 document.documentElement
+            const n = document.documentElement.scrollTop
+            if (n >= 100) {
+                div.style.display = 'block'
+            } else {
+                div.style.display = 'none'
+            }
+        })
+
+        //div.scrollTop 的值可读写,可以修改值
+    </script>
+</body>
+
+</html>
