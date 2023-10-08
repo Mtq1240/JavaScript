@@ -1218,11 +1218,12 @@
   <script>
     //获取元素
     const elevator = document.querySelector('.xtx-elevator')
+    const xtx_entry = document.querySelector('.xtx_entry')
     //1.页面滚动大于 300 就显示电梯导航
     //2.给页面添加滚动事件
     window.addEventListener('scroll', function () {
       const n = document.documentElement.scrollTop
-      if (n >= 300) {
+      if (n >= xtx_entry.offsetTop) {
         elevator.style.opacity = 1
       } else {
         elevator.style.opacity = 0
