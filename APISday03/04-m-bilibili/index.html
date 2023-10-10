@@ -286,7 +286,15 @@
   </style>
   <script>
     //1.获取父元素 添加事件委托
-
+    const list = document.querySelector('.tabs-list')
+    const line = document.querySelector('.line')
+    //2.给a注册事件
+    list.addEventListener('click', function (e) {
+      //判断点击的是a
+      if (e.target.tagName === 'A') {
+        line.style.transform = `translateX(${e.target.offsetLeft}px)`
+      }
+    })
   </script>
 </body>
 
