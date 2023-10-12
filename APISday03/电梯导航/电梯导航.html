@@ -1216,26 +1216,50 @@
   </div>
 
   <script>
-    //获取元素
-    const elevator = document.querySelector('.xtx-elevator')
-    const xtx_entry = document.querySelector('.xtx_entry')
-    //1.页面滚动大于 300 就显示电梯导航
-    //2.给页面添加滚动事件
-    window.addEventListener('scroll', function () {
-      const n = document.documentElement.scrollTop
-      if (n >= xtx_entry.offsetTop) {
-        elevator.style.opacity = 1
-      } else {
-        elevator.style.opacity = 0
-      }
-    })
+    //第一大模块,页面滑动可以显示和隐藏
+    (function () {
+      //获取元素
+      const elevator = document.querySelector('.xtx-elevator')
+      const xtx_entry = document.querySelector('.xtx_entry')
+      //1.页面滚动大于 300 就显示电梯导航
+      //2.给页面添加滚动事件
+      window.addEventListener('scroll', function () {
+        const n = document.documentElement.scrollTop
+        if (n >= xtx_entry.offsetTop) {
+          elevator.style.opacity = 1
+        } else {
+          elevator.style.opacity = 0
+        }
+      })
 
-    //点击返回页面顶部
-    const backTop = document.querySelector('#backTop')
-    backTop.addEventListener('click', function () {
-      // document.documentElement.scrollTop = 0
-      window.scrollTo(0, 0)
-    })
+      //点击返回页面顶部
+      const backTop = document.querySelector('#backTop')
+      backTop.addEventListener('click', function () {
+        // document.documentElement.scrollTop = 0
+        window.scrollTo(0, 0)
+      })
+    })();
+
+    //第二第三都放到另外一个执行函数里面
+    (function () {
+      //2.点击页面可以滑动
+      const list = document.querySelector('.xtx-elevator-list')
+      list.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') {
+          //有返回这个类,没有则返回 null 下面的判断条件就不执行
+          const old = document.querySelector('.xtx-elevator-list .active')
+          //判断 有就先移除原先的类
+          if (old) old.classList.remove('active')
+          //给当前元素添加类
+          e.target.classList.add('active')
+          //根据小盒子的自定义属性值去选择对应的大盒子 e.target.dataset.name
+          //获得对应大盒子的  offsettop 的值
+          const top = document.querySelector(`.xtx_goods_${e.target.dataset.name}`).offsetTop
+          //让页面滚动到对应的位置
+          document.documentElement.scrollTop = top
+        }
+      })
+    })();
   </script>
 </body>
 
