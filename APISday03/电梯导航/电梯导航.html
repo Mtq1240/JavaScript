@@ -1245,7 +1245,7 @@
       //2.点击页面可以滑动
       const list = document.querySelector('.xtx-elevator-list')
       list.addEventListener('click', function (e) {
-        if (e.target.tagName === 'A') {
+        if (e.target.tagName === 'A' && e.target.dataset.name) {
           //有返回这个类,没有则返回 null 下面的判断条件就不执行
           const old = document.querySelector('.xtx-elevator-list .active')
           //判断 有就先移除原先的类
@@ -1260,6 +1260,35 @@
         }
       })
     })();
+
+    //3. 页面滚动,可以根据大盒子选小盒子 添加 active 类
+    window.addEventListener('scroll', function () {
+      //3.1 先移除类
+      // 先获取acctive
+      const old = document.querySelector('.xtx-elevator-list .active')
+      //判断 有就先移除原先的类
+      if (old) old.classList.remove('active')
+
+      //获取滚动的值
+      const n = document.documentElement.scrollTop
+      //获取四个大盒子
+      const news = document.querySelector('.xtx_goods_new')
+      const popular = document.querySelector('.xtx_goods_popular')
+      const brand = document.querySelector('.xtx_goods_brand')
+      const topic = document.querySelector('.xtx_goods_topic')
+
+      if (n >= news.offsetTop && n < popular.offsetTop) {
+        //选择第一个盒子
+        document.querySelector('[data-name=new]').classList.add('active')
+      } else if (n >= popular.offsetTop && n < brand.offsetTop) {
+        document.querySelector('[data-name=popular]').classList.add('active')
+      } else if (n >= brand.offsetTop && n < topic.offsetTop) {
+        document.querySelector('[data-name=brand]').classList.add('active')
+      } else if (n >= topic.offsetTop) {
+        document.querySelector('[data-name=topic]').classList.add('active')
+      }
+    })
+
   </script>
 </body>
 
