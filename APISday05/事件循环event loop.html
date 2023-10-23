@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.log(1) //同步任务
+        document.addEventListener('click', function () {
+            console.log(4)
+        }) //异步任务 要先执行同步任务 , 再不断的获取任务队列中的异步任务(事件循环)
+        // 要放在任务队列中,同步任务执行完获取异步任务
+        console.log(2) //同步任务
+
+        setTimeout(function () {
+            console.log(3);
+        }, 3000) //异步任务
+
+        //1234 or 1243
+
+
+
+    </script>
+</body>
+
+</html>
