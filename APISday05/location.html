@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>刷新</button>
+    <script>
+        //location.href //获取完成的url地址,对其赋值时用于地址的跳转
+        //location.search //获取地址中携带的参数,符号?后面部分
+        //location.hash //获取地址的哈希值,符号#后面部分
+
+        //reload方法用来刷新当前页面,传入参数true时强制刷新
+        const reload = document.querySelector('button')
+        reload.addEventListener('click', function () {
+            location.reload() //方法 
+            //强制刷新
+            location.reload(true)
+        })
+    </script>
+</body>
+
+</html>
