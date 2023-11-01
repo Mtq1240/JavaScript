@@ -118,6 +118,18 @@
     render()
 
     // 2. 新增业务
+    // 2.1form表单注册提交事件,组织默认行为
+    const info = document.querySelector('.info')
+    const uname = document.querySelector('.uname')
+    const age = document.querySelector('.age')
+    const salary = document.querySelector('.salary')
+    info.addEventListener('submit', function (e) {
+      e.preventDefault()
+      // 2.2非空判断
+      if (!uname.value || !age.value || !salary.value) {
+        return alert('输入内容不能为空')
+      }
+    })
 
   </script>
 </body>
