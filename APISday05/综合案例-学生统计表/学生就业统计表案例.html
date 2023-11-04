@@ -77,7 +77,7 @@
         time: '2099/9/9 08:08:08'
       }
     ]
-    localStorage.setItem('data', JSON.stringify(initData))
+    // localStorage.setItem('data', JSON.stringify(initData))
     // 1. 渲染业务
     // 1.1 先读取本地存储的数据
     // (1). 本地存储有数据则记得转换为对象然后存储到变量里面，后期用于渲染页面
@@ -123,11 +123,52 @@
     const uname = document.querySelector('.uname')
     const age = document.querySelector('.age')
     const salary = document.querySelector('.salary')
+    const gender = document.querySelector('.gender')
+    const city = document.querySelector('.city')
     info.addEventListener('submit', function (e) {
       e.preventDefault()
       // 2.2非空判断
       if (!uname.value || !age.value || !salary.value) {
         return alert('输入内容不能为空')
+      }
+      //2.3给arr数组追加对象,里面存储 表单获取过来的值
+      arr.push({
+        // 处理stuId: 数组最后一条数据的stuId + 1
+        stuId: arr.length ? arr[arr.length - 1].stuId + 1 : 1,
+        uname: uname.value,
+        age: age.value,
+        salary: salary.value,
+        gender: gender.value,
+        city: city.value,
+        time: new Date().toLocaleString()
+      })
+
+      //2.4渲染页面和重置表单 reset方法
+      render()
+      this.reset()
+
+      //2.5将数组重新存入本地存储中,记得转换为JSON字符串存储
+      localStorage.setItem('data', JSON.stringify(arr))
+    })
+
+    //3. 删除业务
+    //3.1采用事件委托事件,给tbody注册点击事件
+    tbody.addEventListener('click', function (e) {
+      //判断是否点击的是删除按钮
+      if (e.target.tagName = 'A') {
+        // alert('a')
+        //3.2得到当前点击的索引号,渲染数据的时候,动态给a链接添加的自定义属性例如 data-id = "0"
+        console.log(e.target.dataset.id)
+
+        // 确认是否真的要删除 confirm 点击确定返回true,否则 false
+        if (confirm('你确定要删除这条数据吗?')) {
+          //3.3 根据索引号,利用 splice 删除数组中这条数据
+          arr.splice(e.target.dataset.id, 1)
+          //3.4 重新渲染页面
+          render()
+          //3.5 把最新的arr数据放入本地存储
+          localStorage.setItem('data', JSON.stringify(arr))
+        }
       }
     })
 
