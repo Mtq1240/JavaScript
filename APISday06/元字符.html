@@ -21,8 +21,41 @@
         console.log(/^哈$/.test('哈')) //只有这种为true 精确匹配
         console.log(/^哈$/.test('哈哈'))
         console.log(/^哈$/.test('二哈'))
+        console.log('-------------------------')
+        // 量词 * 类似于 >=0 次
+        console.log(/^哈*$/.test('哈'))
+        console.log(/^哈*$/.test(''))
+        console.log(/^哈*$/.test('二哈'))
+        console.log(/^哈*$/.test('哈很哈'))
+        console.log('-------------------------')
+        // 量词 + 类似于 >=1 次
+        console.log(/^哈+$/.test('哈'))
+        console.log(/^哈+$/.test('哈哈'))
+        console.log(/^哈+$/.test(''))
+        console.log(/^哈+$/.test('二哈'))
+        console.log(/^哈+$/.test('哈很哈'))
+        console.log('-------------------------')
+        // 量词 ? 类似于 0||1 次
+        console.log(/^哈?$/.test('哈'))
+        console.log(/^哈?$/.test('哈哈'))
+        console.log(/^哈?$/.test(''))
+        console.log(/^哈?$/.test('二哈'))
+        console.log(/^哈?$/.test('哈很哈'))
 
 
+        console.log('-------------------------')
+        // 量词 {n} 写几,就必须出现几次
+        console.log(/^哈{4}$/.test('哈'))
+        console.log(/^哈{4}$/.test('哈哈哈哈'))
+        console.log('-------------------------')
+        // 量词 {n,} >=n次
+        console.log(/^哈{4,}$/.test('哈'))
+        console.log(/^哈{4,}$/.test('哈哈哈哈哈'))
+        console.log('-------------------------')
+        // 量词 {n,m} 都好左右两侧不能有空格 >=n && <=m次
+        console.log(/^哈{4,6}$/.test('哈'))
+        console.log(/^哈{4,6}$/.test('哈哈哈哈哈'))
+        console.log(/^哈{4,6}$/.test('哈哈哈哈哈哈'))
     </script>
 </body>
 
