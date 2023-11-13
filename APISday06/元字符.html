@@ -56,6 +56,26 @@
         console.log(/^哈{4,6}$/.test('哈'))
         console.log(/^哈{4,6}$/.test('哈哈哈哈哈'))
         console.log(/^哈{4,6}$/.test('哈哈哈哈哈哈'))
+
+
+        console.log('-------------------------')
+        //字符类 [abc] 只选一个
+        console.log(/^[abc]$/.test('a'))
+        console.log(/^[abc]$/.test('b'))
+        console.log(/^[abc]$/.test('c'))
+        console.log(/^[abc]$/.test('ab')) //精确匹配
+        console.log(/^[abc]/.test('ab'))
+        console.log(/^[abc]{2}$/.test('ab'))
+
+        console.log('-------------------------')
+        //字符类 [a-z] 只选一个
+        console.log(/^[a-z]$/.test('p'))
+        console.log(/^[A-Z]$/.test('p'))
+        console.log(/^[A-Z]$/.test('P'))
+        console.log(/^[0-9]$/.test('2'))
+        console.log(/^[a-zA-Z0-9]$/.test('2'))
+
+
     </script>
 </body>
 
